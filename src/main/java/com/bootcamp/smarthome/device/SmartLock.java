@@ -7,7 +7,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * A PIN-protected smart door lock.
- *
+ * <p>
  * The lock can be locked or unlocked via a 4-digit PIN.
  * Every failed unlock attempt is treated as a security event.
  */

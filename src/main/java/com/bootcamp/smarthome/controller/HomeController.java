@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Central hub that manages all registered smart devices.
- *
+ * <p>
  * Devices are stored in a fixed-size array (maximum {@value #MAX_DEVICES}).
  * The controller routes commands to devices by their ID.
  */
@@ -36,7 +36,7 @@ public class HomeController {
         if (deviceCount >= MAX_DEVICES) {
             throw new IllegalStateException(
                     "Cannot add device '" + device.getDeviceId() +
-                    "': controller is at maximum capacity (" + MAX_DEVICES + ").");
+                            "': controller is at maximum capacity (" + MAX_DEVICES + ").");
         }
         devices[deviceCount] = device;
         deviceCount++;
@@ -49,7 +49,7 @@ public class HomeController {
 
     /**
      * Finds a registered device by its ID.
-     *
+     * <p>
      * Returns {@code null} when no matching device is found.
      */
     public Device findDevice(String deviceId) {
@@ -68,7 +68,7 @@ public class HomeController {
     /**
      * Parses {@code fullCommand}, resolves the target device, and delegates
      * execution to {@link Device#executeCommand(String)}.
-     *
+     * <p>
      * Full command format: {@code "DEVICE_ID ACTION [VALUE]"}
      * Example: {@code "LIGHT_01 SET_BRIGHTNESS 75"}
      *
@@ -104,7 +104,9 @@ public class HomeController {
     // Utility
     // -------------------------------------------------------------------------
 
-    /** Prints the status of every registered device. */
+    /**
+     * Prints the status of every registered device.
+     */
     public void printAllDevices() {
         System.out.println("=== Registered Devices (" + deviceCount + "/" + MAX_DEVICES + ") ===");
         for (int i = 0; i < deviceCount; i++) {

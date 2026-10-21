@@ -5,13 +5,15 @@ import com.bootcamp.smarthome.exception.InvalidValueException;
 
 /**
  * A programmable smart thermostat.
- *
+ * <p>
  * Controls the target temperature in Celsius.
  * The valid operating range is 10.0 °C to 35.0 °C (inclusive).
  */
 public class SmartThermostat extends Device {
 
-    /** Current target temperature in Celsius. Valid range: 10.0–35.0 inclusive. */
+    /**
+     * Current target temperature in Celsius. Valid range: 10.0–35.0 inclusive.
+     */
     private double temperature;
 
     public SmartThermostat(String deviceId, String name, boolean isOnline) {
@@ -25,10 +27,10 @@ public class SmartThermostat extends Device {
 
     /**
      * Sets the target temperature in Celsius.
-     *
+     * <p>
      * Valid range: 10.0–35.0 inclusive.
      */
-    public void setTemperature(double temp) throws HomeAutomationException{
+    public void setTemperature(double temp) throws HomeAutomationException {
         if (temp < 10.0 || temp > 35.0) {
             throw new InvalidValueException("temperature", temp, "between 10.0 and 35.0");
         }
